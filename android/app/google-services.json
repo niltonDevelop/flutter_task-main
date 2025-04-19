@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "298013861564",
+    "project_id": "apptask-7e2d7",
+    "storage_bucket": "apptask-7e2d7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:298013861564:android:3a9d29d4c898a2213f92b9",
+        "android_client_info": {
+          "package_name": "com.ngonzano.fluttertask"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArrg1d76M18A2mWESaoBwtwD31e4Imxv0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
