@@ -1,11 +1,8 @@
-import 'dart:convert';
-
 import 'package:fluttertask/core/auth/model/auth_user.dart';
 import 'package:fluttertask/core/constants/option.dart';
 import 'package:fluttertask/core/network/network.dart';
 import 'package:fluttertask/core/secure_storage/securete_storage_service.dart';
 import 'package:fluttertask/shared/models/user_model.dart';
-
 import 'package:fluttertask/shared/repository/base_repository.dart';
 import 'package:logging/logging.dart';
 
@@ -21,20 +18,20 @@ class UserRepository extends BaseRepository {
 
   Future<bool?> login(AuthUser user) async {
     try {
-      final result = await _apiService.post(
-        endpoint: '$path/login',
-        data: user.toJson(),
-        baseUrl: baseUrl,
-      );
+      // final result = await _apiService.post(
+      //   endpoint: '$path/login',
+      //   data: user.toJson(),
+      //   baseUrl: baseUrl,
+      // );
 
-      if (result.success == false) return false;
+      // if (result.success == false) return false;
 
-      final jsonData = jsonDecode(result.data.toString());
+      // final jsonData = jsonDecode(result.data.toString());
 
       final userModel = AuthUser(
         email: user.email,
         password: user.password,
-        token: jsonData['token'].toString(),
+        token: 'QpwL5tke4Pnpja7X4', //jsonData['token'].toString(),
       );
 
       await secureStorageService.saveCredentials(userModel);
@@ -49,20 +46,20 @@ class UserRepository extends BaseRepository {
 
   Future<bool?> register(AuthUser user) async {
     try {
-      final result = await _apiService.post(
-        endpoint: '$path/register',
-        data: user.toJson(),
-        baseUrl: baseUrl,
-      );
+      // final result = await _apiService.post(
+      //   endpoint: '$path/register',
+      //   data: user.toJson(),
+      //   baseUrl: baseUrl,
+      // );
 
-      if (result.success == false) return false;
-      final jsonData = jsonDecode(result.data.toString());
+      // if (result.success == false) return false;
+      // final jsonData = jsonDecode(result.data.toString());
 
       final userModel = AuthUser(
-        id: (jsonData['id'] as num).toInt(),
+        id: 2, // (jsonData['id'] as num).toInt(),
         email: user.email,
         password: user.password,
-        token: jsonData['token'].toString(),
+        token: 'QpwL5tke4Pnpja7X4', // jsonData['token'].toString(),
       );
 
       secureStorageService.saveCredentials(userModel);

@@ -2,14 +2,11 @@ import 'package:flutter/widgets.dart';
 import 'package:fluttertask/core/auth/model/auth_user.dart';
 import 'package:fluttertask/core/auth/repository/user_repository.dart';
 import 'package:fluttertask/core/secure_storage/securete_storage_service.dart';
-
 import 'package:fluttertask/shared/controller/base_controller.dart';
-
 import 'package:logging/logging.dart';
 
 class LoginController extends BaseController {
-  LoginController({required UserRepository userRepository})
-    : _userRepository = userRepository {
+  LoginController({required UserRepository userRepository}) : _userRepository = userRepository {
     _logger.info('LoginController initialized');
   }
 
@@ -25,10 +22,6 @@ class LoginController extends BaseController {
 
   Future<bool?> login(AuthUser user) async {
     try {
-      // final userData = await secureStorageService.loadCredentials();
-      // if (userData?.id == null) {
-      //   return false;
-      // }
       final result = await _userRepository.login(user);
       _logger.info('Resultado de inicio de sesión: $result');
       if (result == null || result == false) {
